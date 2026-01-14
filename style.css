@@ -1,0 +1,241 @@
+/* ================= ROOT THEME ================= */
+:root {
+  --bg-main: #0b1220;
+  --bg-card: rgba(255,255,255,0.08);
+  --bg-glass: rgba(255,255,255,0.12);
+  --border-glass: rgba(255,255,255,0.18);
+
+  --accent: #38bdf8;
+  --accent-2: #818cf8;
+  --danger: #ef4444;
+
+  --text-main: #e5e7eb;
+  --text-soft: #9ca3af;
+}
+
+/* ================= GLOBAL ================= */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, #1e293b, var(--bg-main)),
+    linear-gradient(135deg, #020617, var(--bg-main));
+  color: var(--text-main);
+}
+
+/* ================= HEADER ================= */
+.header {
+  text-align: center;
+  padding: 22px 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(56,189,248,0.25),
+    rgba(129,140,248,0.18)
+  );
+  backdrop-filter: blur(18px);
+  box-shadow: 0 20px 40px rgba(0,0,0,.7);
+}
+
+.header-logo {
+  width: 42px; /* FIXED SIZE */
+  margin-bottom: 6px;
+  filter: drop-shadow(0 0 12px rgba(56,189,248,.7));
+}
+
+.header h1 {
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.header p {
+  margin: 6px 0 0;
+  color: var(--text-soft);
+}
+
+/* ================= NAVBAR ================= */
+nav {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 28px);
+  max-width: 540px;
+  padding: 12px;
+  display: flex;
+  justify-content: space-around;
+  gap: 8px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.16),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(22px);
+  border-radius: 26px;
+  box-shadow: 0 25px 50px rgba(0,0,0,.75);
+}
+
+nav button {
+  flex: 1;
+  padding: 12px 10px;
+  border-radius: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  background: rgba(255,255,255,0.08);
+  color: var(--text-main);
+  border: 1px solid var(--border-glass);
+  transition: all .2s ease;
+}
+
+nav button:hover {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #020617;
+  transform: translateY(-2px);
+}
+
+/* ================= PAGES & CARDS ================= */
+.page {
+  max-width: 480px;
+  margin: 28px auto;
+}
+
+.card {
+  background: linear-gradient(
+    160deg,
+    rgba(255,255,255,0.16),
+    rgba(255,255,255,0.05)
+  );
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: 28px;
+  padding: 26px;
+
+  box-shadow:
+    0 30px 70px rgba(0,0,0,.8),
+    inset 0 1px 0 rgba(255,255,255,.25);
+
+  animation: fadeUp .45s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px) scale(.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* ================= INPUTS ================= */
+input, textarea, select {
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  border-radius: 16px;
+  border: none;
+  outline: none;
+
+  background: rgba(255,255,255,0.12);
+  color: var(--text-main);
+  font-size: 14px;
+
+  box-shadow: inset 0 2px 8px rgba(0,0,0,.6);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-soft);
+}
+
+/* ================= BUTTONS ================= */
+button {
+  width: 100%;
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+  margin-top: 10px;
+
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #020617;
+  font-weight: 800;
+  cursor: pointer;
+
+  box-shadow:
+    0 14px 35px rgba(56,189,248,.55),
+    inset 0 1px 0 rgba(255,255,255,.35);
+
+  transition: all .2s ease;
+}
+
+button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 22px 45px rgba(56,189,248,.75);
+}
+
+button.danger {
+  background: linear-gradient(135deg, #fb7185, var(--danger));
+  color: white;
+  box-shadow: 0 14px 35px rgba(239,68,68,.6);
+}
+
+.secondary {
+  background: rgba(255,255,255,0.14);
+  color: var(--text-main);
+  border: 1px solid var(--border-glass);
+}
+
+/* ================= LOGOS ================= */
+
+/* Login / Auth logo */
+.auth-logo {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.auth-logo img {
+  width: 70px; /* FIXED SIZE */
+  opacity: 0.95;
+  filter: drop-shadow(0 0 18px rgba(56,189,248,.6));
+}
+
+/* Home / Dashboard logo */
+.home-logo {
+  display: block;
+  width: 90px; /* FIXED SIZE */
+  margin: 12px auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 22px rgba(56,189,248,.75));
+  animation: pulse 2.8s infinite;
+}
+
+@keyframes pulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+/* ================= LISTS ================= */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.14);
+  margin-bottom: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.25);
+}
+
+/* ================= EMERGENCY ================= */
+.emergency-list li {
+  font-weight: 600;
+}
+
+/* ================= UTILITY ================= */
+.hidden {
+  display: none;
+}
