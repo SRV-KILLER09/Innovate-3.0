@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MEDISYNC</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <img src="medisync-logo.png" class="header-logo">
+  <h1>MEDISYNC</h1>
+  <p>High Care · Low Friction Healthcare</p>
+</header>
+
+<section id="auth" class="page card">
+  <div class="auth-logo">
+    <img src="medisync-logo.png">
+  </div>
+  <h2>Login / Signup</h2>
+  <input id="email" placeholder="Email">
+  <input id="password" type="password" placeholder="Password">
+  <input id="name" placeholder="Full Name (Signup only)">
+  <input id="guardian" placeholder="Guardian Emergency Number">
+  <button onclick="signup()">Signup</button>
+  <button onclick="login()">Login</button>
+</section>
+
+<nav id="navbar" class="hidden">
+  <button onclick="show('home')">Home</button>
+  <button onclick="show('medicine')">Medicines</button>
+  <button onclick="show('appointments')">Appointments</button>
+  <button onclick="show('emergency')">Emergency</button>
+  <button onclick="logout()">Logout</button>
+</nav>
+
+<section id="home" class="page card hidden">
+  <img src="medisync-logo.png" class="home-logo">
+  <h2>Patient Dashboard</h2>
+  <p id="welcomeMsg"></p>
+  <button onclick="showTodaySchedule()">📅 Today’s Schedule</button>
+</section>
+
+<section id="medicine" class="page card hidden">
+  <h2>💊 Medicine Timetable</h2>
+  <input id="medName" placeholder="Medicine name">
+  <input id="medTime" type="time">
+  <input id="medDays" type="number" placeholder="Number of days">
+  <button onclick="addReminder()">Add Medicine</button>
+  <ul id="reminderList"></ul>
+  <button onclick="show('home')" class="secondary">⬅ Home</button>
+</section>
+
+<section id="appointments" class="page card hidden">
+  <h2>📅 Appointments</h2>
+  <input id="doctor" placeholder="Doctor name">
+  <input id="appDate" type="date">
+  <input id="appTime" type="time">
+  <input id="appReason" placeholder="Reason">
+  <button onclick="bookAppointment()">Book Appointment</button>
+  <ul id="appointmentList"></ul>
+  <button onclick="show('home')" class="secondary">⬅ Home</button>
+</section>
+
+<section id="emergency" class="page card hidden">
+  <h2>🚨 Emergency</h2>
+  <p>Guardian Contact: <strong id="guardianNo"></strong></p>
+  <button class="danger" onclick="sendEmergencyNotification()">
+    Send Emergency Alert
+  </button>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
